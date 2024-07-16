@@ -4,23 +4,48 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
-export default function CardPrayer() {
+import { imageFajr, imageDhhr, imageAsr, imageNight, imageSunset, logo } from '../../public';
+
+
+export default function CardPrayer(params) {
+
+    let prayer = '';
+
+    switch (params.name) {
+        case 'fajr':
+            prayer = imageFajr;
+            break;
+        case "dhhr":
+            prayer = imageDhhr;
+            break;
+        case "asr":
+            prayer = imageAsr;
+            break;
+        case "night":
+            prayer = imageNight;
+            break;
+        case "sunset":
+            prayer = imageSunset;
+            break;
+        default:
+            prayer = logo;
+    }
+
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: 345 }} style={{ marginBottom: '20px' }}>
             <CardActionArea>
                 <CardMedia
                     component="img"
                     height="140"
-                    image="/static/images/cards/contemplative-reptile.jpg"
+                    image={prayer}
                     alt="green iguana"
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        Lizard
+                    <Typography gutterBottom variant="h4" component="div">
+                        {params.name}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000
-                        species, ranging across all continents except Antarctica
+                    <Typography variant="h1" color="text.secondary">
+                        {params.time}
                     </Typography>
                 </CardContent>
             </CardActionArea>
