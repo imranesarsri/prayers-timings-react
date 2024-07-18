@@ -4,6 +4,8 @@ import SectionMenu from '../sections/SectionMenu';
 import SectionCardPrayer from '../sections/SectionCardPrayer';
 import SectionHeader from '../sections/SectionHeader';
 import SectionInfoCity from '../sections/SectionInfoCity';
+import SectionTimingAllPrayers from '../sections/SectionTimingAllPrayers';
+import SecrionPrayerDefinitions from '../sections/SecrionPrayerDefinitions';
 
 export default function Home() {
     return (
@@ -13,6 +15,8 @@ export default function Home() {
             <SectionHeader />
             <SectionInfoCity />
             <SectionCardPrayer />
+            <SectionTimingAllPrayers />
+            <SecrionPrayerDefinitions />
         </Main>
     )
 }

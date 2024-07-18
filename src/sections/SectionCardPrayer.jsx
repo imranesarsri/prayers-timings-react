@@ -8,7 +8,7 @@ import Container from '../miniComponent/layouts/Container';
 export default function SectionCardPrayer() {
     const getTimings = async () => {
         const response = await axios.get(" https://api.aladhan.com/v1/timingsByCity?city=Washington&country=United States")
-        // console.log(response.data.data.timings)
+        // console.log(response.data)
         setTiming(response.data.data.timings)
     }
 
