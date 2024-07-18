@@ -11,3 +11,6 @@ npm install
 ```bash
 npm run dev
 ```
+
+## API
+[aladhan.com](https://aladhan.com/)

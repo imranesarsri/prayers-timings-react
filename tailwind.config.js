@@ -6,31 +6,39 @@ export default {
   ],
   darkMode: 'selector',
   theme: {
-    container: {
-      center: true,
-      padding: '2rem',
+    extend: {
+      container: {
+        center: true,
+        padding: '2rem',
+      },
+      boxShadow: {
+        'custom': '0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12)',
+      },
+      fontSize: {
+        '10xl': '5rem',
+        '9xl': '4rem',
+      },
+      colors: {
+        Blue: {
+          default: '#050C9C',
+          primary: '#3E54AC',
+          secondary: '#3ABEF9',
+          tertiary: '#A7E6FF',
+        },
+        light: {
+          default: '#FFFFFF',
+          primary: '#EEF7FF',
+          secondary: '#F3F4F6',
+          tertiary: '#F6F5F5',
+        },
+        dark: {
+          default: '#000000',
+          primary: '#1B2021',
+          secondary: '#21243D',
+          tertiary: '#363062',
+        },
+      },
     },
-    colors: {
-      Blue: {
-        default: '#050C9C',
-        primary: '#3572EF',
-        secondary: '#3ABEF9',
-        tertiary: '#A7E6FF',
-      },
-      light: {
-        default: '#FFFFFF',
-        primary: '#EEF7FF',
-        secondary: '#F6F4EB',
-        tertiary: '#F6F5F5',
-      },
-      dark: {
-        default: '#000000',
-        primary: '#1B2021',
-        secondary: '#21243D',
-        tertiary: '#1D1919',
-      },
-    },
-    extend: {},
   },
   plugins: [],
 }

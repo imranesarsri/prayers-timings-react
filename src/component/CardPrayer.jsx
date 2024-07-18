@@ -1,9 +1,3 @@
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
-
 import { imageFajr, imageDhhr, imageAsr, imageNight, imageSunset, logo } from '../../public';
 
 
@@ -32,22 +26,20 @@ export default function CardPrayer(params) {
     }
 
     return (
-        <Card sx={{ maxWidth: 345 }} style={{ marginBottom: '20px' }}>
-            <CardActionArea>
-                <CardMedia
-                    component="img"
-                    height="140"
-                    image={prayer}
-                    alt="green iguana"
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="h4" component="div">
-                        {params.name}
-                    </Typography>
-                    <Typography variant="h1" color="text.secondary">
-                        {params.time}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-        </Card>)
+        <div className="max-w-sm mb-5 sm:mb-0 bg-light-default hover:bg-light-secondary rounded-lg shadow-custom dark:bg-gray-800">
+            <a href="#">
+                <img className="rounded-t-lg" src={prayer} alt="" />
+            </a>
+            <div className="p-5">
+
+                <p className="capitalize text-xl font-semibold text-gray-700">
+                    {params.name}
+                </p>
+                <h5 className="mb-2 text-9xl  lg:text-10xl font-bold tracking-tight text-dark-tertiary dark:text-white">
+                    {params.time}
+                </h5>
+            </div>
+        </div>
+
+    )
 }

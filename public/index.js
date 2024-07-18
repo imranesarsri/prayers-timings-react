@@ -1,15 +1,24 @@
-import imageFajr from './images/fajr-prayer.png';
-import imageDhhr from './images/dhhr-prayer-mosque.png';
-import imageAsr from './images/asr-prayer-mosque.png';
-import imageNight from './images/night-prayer-mosque.png';
-import imageSunset from './images/sunset-prayer-mosque.png';
-import logo from './logo.png';
-
+// Prayers
+import imageFajr from './images/prayers/fajr-prayer.png';
+import imageDhhr from './images/prayers/dhhr-prayer-mosque.png';
+import imageAsr from './images/prayers/asr-prayer-mosque.png';
+import imageNight from './images/prayers/night-prayer-mosque.png';
+import imageSunset from './images/prayers/sunset-prayer-mosque.png';
+// Logos
+import logo from './images/logos/logo.png';
+// Card
+import date from './images/cards/time.png';
+import time from './images/cards/date.png';
 export {
+  // Prayers
   imageFajr,
   imageDhhr,
   imageAsr,
   imageNight,
   imageSunset,
-  logo
+  // Logos
+  logo,
+  // Card
+  date,
+  time
 };
