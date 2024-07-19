@@ -1,16 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    "node_modules/flowbite-react/lib/esm/**/*.js",
+    // 'node_modules/flowbite-react/lib/esm/**/*.js'
+    './node_modules/flowbite-react/node_modules/flowbite/lib/esm/**/*.js'
+
   ],
   darkMode: 'selector',
   theme: {
     extend: {
       container: {
         center: true,
-        padding: '2rem',
+        // padding: '2rem',
       },
       boxShadow: {
         'custom': '0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12)',
@@ -21,8 +22,8 @@ export default {
       },
       colors: {
         Blue: {
-          default: '#050C9C',
-          primary: '#3E54AC',
+          default: '#3943FA',
+          primary: '#3980FA',
           secondary: '#3ABEF9',
           tertiary: '#A7E6FF',
         },
@@ -42,6 +43,6 @@ export default {
     },
   },
   plugins: [
-    require('flowbite/plugin'),
+    require('flowbite/plugin')
   ],
 }

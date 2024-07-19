@@ -6,6 +6,7 @@ import SectionHeader from '../sections/SectionHeader';
 import SectionInfoCity from '../sections/SectionInfoCity';
 import SectionTimingAllPrayers from '../sections/SectionTimingAllPrayers';
 import SecrionPrayerDefinitions from '../sections/SecrionPrayerDefinitions';
+import SectionFooter from '../sections/SectionFooter';
 
 export default function Home() {
     return (
@@ -17,6 +18,7 @@ export default function Home() {
             <SectionCardPrayer />
             <SectionTimingAllPrayers />
             <SecrionPrayerDefinitions />
+            <SectionFooter />
         </Main>
     )
 }

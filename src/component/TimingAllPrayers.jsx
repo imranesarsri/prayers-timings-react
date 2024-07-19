@@ -4,7 +4,7 @@ export default function TimingAllPrayers() {
     return (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-dark-tertiary dark:text-gray-400">
                     <tr>
                         <th scope="col" className="px-6 py-3">
                             Image
@@ -20,7 +20,7 @@ export default function TimingAllPrayers() {
                 <tbody>
                     <TableRow title="fajr" time="00:00" />
                     <TableRow title="sunrise" time="00:00" />
-                    <TableRow title="dhuhr" time="00:00" />
+                    <TableRow title="dhhr" time="00:00" />
                     <TableRow title="asr" time="00:00" />
                     <TableRow title="sunset" time="00:00" />
                     <TableRow title="maghrib" time="00:00" />

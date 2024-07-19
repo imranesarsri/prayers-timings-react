@@ -1,0 +1,79 @@
+[
+    {
+        "id": 1,
+        "nameEn": "fajr",
+        "nameAr": "الفجر",
+        "descriptionEn": "The dawn prayer, performed before sunrise.",
+        "descriptionAr": "صلاة الفجر، تُصلّى قبل طلوع الشمس."
+    },
+    {
+        "id": 2,
+        "nameEn": "sunrise",
+        "nameAr": "شروق الشمس",
+        "descriptionEn": "The time when the sun appears above the horizon in the morning.",
+        "descriptionAr": "شروق الشمس، الوقت الذي يظهر فيه الشمس فوق الأفق في الصباح."
+    },
+    {
+        "id": 3,
+        "nameEn": "dhhr",
+        "nameAr": "الظهر",
+        "descriptionEn": "The noon prayer, performed after the sun begins to decline from its zenith.",
+        "descriptionAr": "صلاة الظهر، تُصلّى بعد أن يبدأ الشمس في الانحدار من زوالها."
+    },
+    {
+        "id": 4,
+        "nameEn": "asr",
+        "nameAr": "العصر",
+        "descriptionEn": "The afternoon prayer, performed when the shadow of an object equals its height.",
+        "descriptionAr": "صلاة العصر، تُصلّى عندما يكون ظل الشيء يساوي ارتفاعه."
+    },
+    {
+        "id": 5,
+        "nameEn": "sunset",
+        "nameAr": "غروب الشمس",
+        "descriptionEn": "The time when the sun disappears below the horizon in the evening.",
+        "descriptionAr": "غروب الشمس، الوقت الذي تختفي فيه الشمس تحت الأفق في المساء."
+    },
+    {
+        "id": 6,
+        "nameEn": "maghrib",
+        "nameAr": "المغرب",
+        "descriptionEn": "The evening prayer, performed just after sunset.",
+        "descriptionAr": "صلاة المغرب، تُصلّى فور غروب الشمس."
+    },
+    {
+        "id": 7,
+        "nameEn": "isha",
+        "nameAr": "العشاء",
+        "descriptionEn": "The night prayer, performed after twilight has ended.",
+        "descriptionAr": "صلاة العشاء، تُصلّى بعد انتهاء الشفق."
+    },
+    {
+        "id": 8,
+        "nameEn": "imsak",
+        "nameAr": "الإمساك",
+        "descriptionEn": "The time to stop eating before Fajr prayer begins.",
+        "descriptionAr": "الإمساك، الوقت الذي يجب فيه التوقف عن الأكل قبل بداية صلاة الفجر."
+    },
+    {
+        "id": 9,
+        "nameEn": "midnight",
+        "nameAr": "منتصف الليل",
+        "descriptionEn": "The middle of the night, often calculated as half the time between sunset and sunrise.",
+        "descriptionAr": "منتصف الليل، وهو عادة يحسب كنصف الوقت بين غروب الشمس وطلوع الشمس."
+    },
+    {
+        "id": 10,
+        "nameEn": "firstthird",
+        "nameAr": "ثلث الليل الأول",
+        "descriptionEn": "The end of the first third of the night.",
+        "descriptionAr": "ثلث الليل الأول، نهاية الثلث الأول من الليل."
+    },
+    {
+        "id": 11,
+        "nameEn": "lastthird",
+        "nameAr": "ثلث الليل الأخير",
+        "descriptionEn": "The beginning of the last third of the night.",
+        "descriptionAr": "ثلث الليل الأخير، بداية الثلث الأخير من الليل."
+    }
+]

@@ -14,8 +14,9 @@ export default function SectionCardPrayer() {
 
     useEffect(() => {
         getTimings()
-    })
+    }, [])
     const [timings, setTiming] = useState({
+        Imsak: "00:00",
         Fajr: "00:00",
         Sunrise: "00:00",
         Dhuhr: "00:00",
@@ -23,7 +24,6 @@ export default function SectionCardPrayer() {
         Sunset: "00:00",
         Maghrib: "00:00",
         Isha: "00:00",
-        Imsak: "00:00",
         Midnight: "00:00",
         Firstthird: "00:00",
         Lastthird: "00:00"
@@ -38,7 +38,7 @@ export default function SectionCardPrayer() {
                 <CardPrayer name="fajr" time={timings.Fajr} />
                 <CardPrayer name="dhhr" time={timings.Dhuhr} />
                 <CardPrayer name="asr" time={timings.Asr} />
-                <CardPrayer name="night" time={timings.Maghrib} />
+                <CardPrayer name="maghrib" time={timings.Maghrib} />
                 <CardPrayer name="sunset" time={timings.Isha} />
             </Row_5>
         </Container>
