@@ -19,7 +19,7 @@ export default function Header() {
                 <Row_2>
                     <div className="flex justify-center py-2 md:py-0">
                         <select id="countries" className="bg-gray-50 text-center w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Choose a city</option>
+                            <option value="">Choose a city</option>
                             <option value="US">United States</option>
                             <option value="CA">Canada</option>
                             <option value="FR">France</option>
@@ -28,7 +28,7 @@ export default function Header() {
                     </div>
                     <div className="flex justify-center py-2 md:py-0">
                         <select id="countries" className="bg-gray-50 text-center w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Choose a country</option>
+                            <option value="">Choose a country</option>
                             <option value="US">United States</option>
                             <option value="CA">Canada</option>
                             <option value="FR">France</option>

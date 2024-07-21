@@ -1,9 +1,9 @@
-import PrayerImages from "../logic/PrayerImages";
+import { getPrayerImage } from "../logic/PrayerImages";
 
 
 export default function TableRow(params) {
 
-    const prayer = PrayerImages[params.title] || PrayerImages.default;
+    const prayer = getPrayerImage(params.title);
 
     return (
         <tr className="odd:bg-white odd:dark:bg-dark-primary even:bg-light-tertiary even:dark:bg-dark-secondary border-b dark:border-gray-700">

@@ -27,5 +27,11 @@ const PrayerImages = {
     lastthird: imageLastthird,
     default: logo
 };
-export default PrayerImages;
 
+const getPrayerImage = (name) => {
+    const prayerName = name.toLowerCase(); // Convert to lowercase
+    return PrayerImages[prayerName] || PrayerImages.default;
+};
+
+export { PrayerImages, getPrayerImage };
+export default PrayerImages;
