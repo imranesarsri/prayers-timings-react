@@ -14,8 +14,8 @@ export default function Home() {
 
         <Main>
             <SectionMenu />
-            <SectionHeader />
             <ApiPrayers>
+                <SectionHeader />
                 <SectionInfoCity />
                 <SectionCardPrayer />
                 <SectionTimingAllPrayers />

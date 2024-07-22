@@ -34,23 +34,81 @@ export default function ApiPrayers(params) {
         year: "YYYY"
     })
 
+    const [allCountries, setAllCountries] = useState([]);
+    const [allCities, setAllCities] = useState([])
+
+    const [country, setCountry] = useState('Morocco')
+    const [city, setCity] = useState('')
+
+
+    // Get timing prayers
     const getTimings = async () => {
-        const response = await axios.get("https://api.aladhan.com/v1/timingsByCity?city=Tanger&country=Morocco");
-        setTiming(response.data.data.timings);
-        setDateGregorian(response.data.data.date.gregorian)
-        setDateHijri(response.data.data.date.hijri)
-        // console.log(response.data)
-        console.log(dateGregorian)
+        try {
+            const response = await axios.get(`https://api.aladhan.com/v1/timingsByCity?city=${city}&country=${country}`);
+            setTiming(response.data.data.timings);
+            setDateGregorian(response.data.data.date.gregorian);
+            setDateHijri(response.data.data.date.hijri);
+        } catch (error) {
+            console.error("Error fetching timings:", error);
+        }
     };
+
+    // Get all countries
+    const getCountries = async () => {
+        try {
+            const response = await axios.get("https://countriesnow.space/api/v0.1/countries/iso");
+            setAllCountries(response.data.data);
+        } catch (error) {
+            console.error("Error fetching countries:", error);
+        }
+    };
+
+    // Get all cities related to one country
+    const getCities = async () => {
+        try {
+            const response = await axios.post('https://countriesnow.space/api/v0.1/countries/cities',
+                { country: country })
+            setAllCities(response.data.data)
+            // console.log(response.data.data);
+        } catch (error) {
+            console.error("Error fetching cities:", error);
+        }
+    };
+
+    // Get capital
+    const getCapital = async () => {
+        try {
+            const response = await axios.post('https://countriesnow.space/api/v0.1/countries/capital',
+                { country: country })
+            setCity(response.data.data.capital)
+            // console.log(response.data.data.capital);
+        } catch (error) {
+            console.error("Error fetching capital:", error);
+        }
+    };
+
+
 
     useEffect(() => {
         getTimings();
+        getCities();
+        getCapital();
+    }, [country, city]);
+
+    useEffect(() => {
+        getCountries();
     }, []);
 
     const values = {
         timings,
         dateGregorian,
-        dateHijri
+        dateHijri,
+        allCountries,
+        allCities,
+        country,
+        setCountry,
+        city,
+        setCity
     }
     return (
         <ApiPrayersContext.Provider value={values}>

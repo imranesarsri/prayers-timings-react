@@ -11,7 +11,7 @@ export default function PrayerDefinitions(params) {
             </div>
             <div className="col-span-9 lg:col-span-10">
                 <SecondaryHeader secondaryHeader={params.name} />
-                <p className="">
+                <p className="text-justify">
                     {params.description}
                 </p>
             </div>
