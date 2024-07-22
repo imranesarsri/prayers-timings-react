@@ -4,13 +4,13 @@ import { ApiPrayersContext } from '../miniComponent/logic/ApiPrayers'
 
 export default function CityDateTime() {
 
-    const { dateGregorian, dateHijri } = useContext(ApiPrayersContext)
+    const { dateGregorian, dateHijri, timeH } = useContext(ApiPrayersContext)
 
     return (
         <div style={{ backgroundImage: `url(${time})`, backgroundSize: 'cover', }} className="text-light-default border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-5">
             <div className='mb-5'>
                 <p className="text-2xl font-semibold">{dateGregorian.weekday.en}</p>
-                <h5 className="mb-2 text-5xl font-bold tracking-tight">12:40</h5>
+                <h5 className="mb-2 text-5xl font-bold tracking-tight">{timeH}</h5>
             </div>
             <div>
                 <p className="text-xl">

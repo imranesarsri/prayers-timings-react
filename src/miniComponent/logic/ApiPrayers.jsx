@@ -1,9 +1,14 @@
 import { useEffect, useState, createContext } from 'react';
 import axios from 'axios';
+import moment from 'moment';
 
 export const ApiPrayersContext = createContext(null);
 
 export default function ApiPrayers(params) {
+    const timeH = moment().format('h:mm:ss');
+    // console.log(time)
+
+
     const [timings, setTiming] = useState({
         Imsak: "00:00",
         Fajr: "00:00",
@@ -39,6 +44,7 @@ export default function ApiPrayers(params) {
 
     const [country, setCountry] = useState('Morocco')
     const [city, setCity] = useState('')
+    const [capital, setCapital] = useState('')
 
 
     // Get timing prayers
@@ -80,7 +86,7 @@ export default function ApiPrayers(params) {
         try {
             const response = await axios.post('https://countriesnow.space/api/v0.1/countries/capital',
                 { country: country })
-            setCity(response.data.data.capital)
+            setCapital(response.data.data.capital)
             // console.log(response.data.data.capital);
         } catch (error) {
             console.error("Error fetching capital:", error);
@@ -100,6 +106,7 @@ export default function ApiPrayers(params) {
     }, []);
 
     const values = {
+        timeH,
         timings,
         dateGregorian,
         dateHijri,
@@ -108,7 +115,8 @@ export default function ApiPrayers(params) {
         country,
         setCountry,
         city,
-        setCity
+        setCity,
+        capital
     }
     return (
         <ApiPrayersContext.Provider value={values}>

@@ -16,3 +16,12 @@ npm run dev
 [aladhan.com](https://aladhan.com/)
 - api countries and cities
 [getpostman](https://documenter.getpostman.com/view/1134062/T1LJjU52)
+
+
+## Library momentjs 
+
+- [momentjs.com](https://momentjs.com/)
+
+```bash
+npm install moment --save 
+```

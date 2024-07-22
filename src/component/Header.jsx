@@ -5,7 +5,7 @@ import Row_2 from "../miniComponent/layouts/Row_2";
 import { ApiPrayersContext } from "../miniComponent/logic/ApiPrayers";
 
 export default function Header() {
-    const { allCountries, allCities, country, setCountry, city, setCity } = useContext(ApiPrayersContext);
+    const { allCountries, allCities, country, setCountry, city, setCity, capital } = useContext(ApiPrayersContext);
 
     return (
         <Row_1>
@@ -29,6 +29,7 @@ export default function Header() {
                     </div>
                     <div className="flex justify-center py-2 md:py-0">
                         <select id="countries" value={city} onChange={(event) => { setCity(event.target.value) }} className="bg-gray-50 text-center w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option value={capital}>{capital}</option>
                             {allCities.map((city, index) => (
                                 <option key={index} value={city}>{city}</option>
                             ))}
