@@ -5,6 +5,7 @@ import GetCountries from './API/GetCountries';
 import GetCities from './API/GetCities';
 import GetCapital from './API/GetCapital';
 import CurrentPrayerAndNextPrayer from './CurrentPrayerAndNextPrayer';
+import TimeRemainingForNextPrayer from './TimeRemainingForNextPrayer';
 
 export const ApiPrayersContext = createContext(null);
 
@@ -14,6 +15,8 @@ export default function ApiPrayers(params) {
         currentPrayer: 0,
         nextPrayer: 1
     })
+
+    const [timeRemainingNextPrayer, setTimeRemainingNextPrayer] = useState('HH-DD')
 
     const [timeNow, setTimeNow] = useState('')
     const [timings, setTiming] = useState({
@@ -64,6 +67,8 @@ export default function ApiPrayers(params) {
         const t = moment();
         setTimeNow(t.format('h:mm:ss'))
         CurrentPrayerAndNextPrayer(moment(), moment, "hh:mm", timings, setCurrentPrayerAndNextPrayer)
+
+        TimeRemainingForNextPrayer(currentPrayerAndNextPrayer.nextPrayer, timings, timeNow, setTimeRemainingNextPrayer)
     }, []);
 
     const values = {
@@ -79,6 +84,7 @@ export default function ApiPrayers(params) {
         setCity,
         capital,
         currentPrayerAndNextPrayer,
+        timeRemainingNextPrayer
 
     }
     return (
