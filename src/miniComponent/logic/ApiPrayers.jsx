@@ -1,19 +1,20 @@
 import { useEffect, useState, createContext } from 'react';
-import axios from 'axios';
 import moment from 'moment';
 import CurrentPrayerAndNextPrayer from './CurrentPrayerAndNextPrayer';
+import GetTimings from '../../logic/API/GetTimings';
+import GetCountries from '../../logic/API/GetCountries';
+import GetCities from '../../logic/API/GetCities';
+import GetCapital from '../../logic/API/GetCapital';
 
 export const ApiPrayersContext = createContext(null);
 
 export default function ApiPrayers(params) {
 
-    // console.log(time)
-
-
     const [currentPrayerAndNextPrayer, setCurrentPrayerAndNextPrayer] = useState({
         currentPrayer: 0,
         nextPrayer: 1
     })
+
     const [timeNow, setTimeNow] = useState('')
     const [timings, setTiming] = useState({
         Imsak: "00:00",
@@ -36,7 +37,6 @@ export default function ApiPrayers(params) {
         weekday: { en: "DD" },
         year: "YYYY"
     })
-
     const [dateHijri, setDateHijri] = useState({
         date: "DD-MM-YYYY",
         day: "DD",
@@ -53,61 +53,14 @@ export default function ApiPrayers(params) {
     const [capital, setCapital] = useState('')
 
 
-    // Get timing prayers
-    const getTimings = async () => {
-        try {
-            const response = await axios.get(`https://api.aladhan.com/v1/timingsByCity?city=${city}&country=${country}`);
-            setTiming(response.data.data.timings);
-            setDateGregorian(response.data.data.date.gregorian);
-            setDateHijri(response.data.data.date.hijri);
-        } catch (error) {
-            console.error("Error fetching timings:", error);
-        }
-    };
-
-    // Get all countries
-    const getCountries = async () => {
-        try {
-            const response = await axios.get("https://countriesnow.space/api/v0.1/countries/iso");
-            setAllCountries(response.data.data);
-        } catch (error) {
-            console.error("Error fetching countries:", error);
-        }
-    };
-
-    // Get all cities related to one country
-    const getCities = async () => {
-        try {
-            const response = await axios.post('https://countriesnow.space/api/v0.1/countries/cities',
-                { country: country })
-            setAllCities(response.data.data)
-            // console.log(response.data.data);
-        } catch (error) {
-            console.error("Error fetching cities:", error);
-        }
-    };
-
-    // Get capital
-    const getCapital = async () => {
-        try {
-            const response = await axios.post('https://countriesnow.space/api/v0.1/countries/capital',
-                { country: country })
-            setCapital(response.data.data.capital)
-            // console.log(response.data.data.capital);
-        } catch (error) {
-            console.error("Error fetching capital:", error);
-        }
-    };
-
-
     useEffect(() => {
-        getTimings();
-        getCities();
-        getCapital();
+        GetTimings(city, country, setTiming, setDateGregorian, setDateHijri);
+        GetCities(setAllCities, country);
+        GetCapital(setCapital, country);
     }, [country, city]);
 
     useEffect(() => {
-        getCountries();
+        GetCountries(setAllCountries);
         const t = moment();
         setTimeNow(t.format('h:mm:ss'))
         CurrentPrayerAndNextPrayer(moment(), moment, "hh:mm", timings, setCurrentPrayerAndNextPrayer)
