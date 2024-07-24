@@ -7,7 +7,7 @@ import SectionInfoCity from '../sections/SectionInfoCity';
 import SectionTimingAllPrayers from '../sections/SectionTimingAllPrayers';
 import SecrionPrayerDefinitions from '../sections/SecrionPrayerDefinitions';
 import SectionFooter from '../sections/SectionFooter';
-import ApiPrayers from '../miniComponent/logic/ApiPrayers';
+import ApiPrayers from '../logic/ApiPrayers';
 
 export default function Home() {
     return (

@@ -1,10 +1,9 @@
 import { useContext } from 'react';
 import CardPrayer from '../component/CardPrayer';
 import Row_5 from '../miniComponent/layouts/Row_5';
-// import axios from 'axios';
 import PrimaryHeader from '../miniComponent/headers/PrimaryHeader';
 import Container from '../miniComponent/layouts/Container';
-import { ApiPrayersContext } from '../miniComponent/logic/ApiPrayers';
+import { ApiPrayersContext } from '../logic/ApiPrayers';
 
 export default function SectionCardPrayer() {
 
