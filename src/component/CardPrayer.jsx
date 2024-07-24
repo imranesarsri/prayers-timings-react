@@ -1,4 +1,4 @@
-import { getPrayerImage } from '../miniComponent/logic/PrayerImages';
+import { getPrayerImage } from "../logic/PrayerImages";
 
 export default function CardPrayer(params) {
 

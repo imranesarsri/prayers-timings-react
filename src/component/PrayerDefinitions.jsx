@@ -1,5 +1,5 @@
+import PrayerImages from "../logic/PrayerImages";
 import SecondaryHeader from "../miniComponent/headers/SecondaryHeader";
-import PrayerImages from "../miniComponent/logic/PrayerImages";
 
 export default function PrayerDefinitions(params) {
     const prayer = PrayerImages[params.name] || PrayerImages.default;

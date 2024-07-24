@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { date } from '../../public'
 import { ApiPrayersContext } from '../miniComponent/logic/ApiPrayers'
-import NamePrayer from '../miniComponent/logic/NamePrayer'
+import NamePrayer from '../logic/NamePrayer'
 
 export default function PrayerTimeRemaining() {
     const { currentPrayerAndNextPrayer } = useContext(ApiPrayersContext)

@@ -1,10 +1,10 @@
 import { useEffect, useState, createContext } from 'react';
 import moment from 'moment';
-import CurrentPrayerAndNextPrayer from './CurrentPrayerAndNextPrayer';
 import GetTimings from '../../logic/API/GetTimings';
 import GetCountries from '../../logic/API/GetCountries';
 import GetCities from '../../logic/API/GetCities';
 import GetCapital from '../../logic/API/GetCapital';
+import CurrentPrayerAndNextPrayer from '../../logic/CurrentPrayerAndNextPrayer';
 
 export const ApiPrayersContext = createContext(null);
 

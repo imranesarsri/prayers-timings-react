@@ -1,4 +1,4 @@
-import { getPrayerImage } from "../logic/PrayerImages";
+import { getPrayerImage } from "../../logic/PrayerImages";
 
 
 export default function TableRow(params) {

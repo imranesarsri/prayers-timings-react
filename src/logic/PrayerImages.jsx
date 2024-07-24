@@ -11,7 +11,7 @@ import {
     imageFirstthird,
     imageLastthird,
     logo
-} from '../../../public';
+} from '../../public';
 
 const PrayerImages = {
     fajr: imageFajr,
