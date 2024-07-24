@@ -1,14 +1,20 @@
 import { useEffect, useState, createContext } from 'react';
 import axios from 'axios';
 import moment from 'moment';
+import CurrentPrayerAndNextPrayer from './CurrentPrayerAndNextPrayer';
 
 export const ApiPrayersContext = createContext(null);
 
 export default function ApiPrayers(params) {
-    const timeH = moment().format('h:mm:ss');
+
     // console.log(time)
 
 
+    const [currentPrayerAndNextPrayer, setCurrentPrayerAndNextPrayer] = useState({
+        currentPrayer: 0,
+        nextPrayer: 1
+    })
+    const [timeNow, setTimeNow] = useState('')
     const [timings, setTiming] = useState({
         Imsak: "00:00",
         Fajr: "00:00",
@@ -94,7 +100,6 @@ export default function ApiPrayers(params) {
     };
 
 
-
     useEffect(() => {
         getTimings();
         getCities();
@@ -103,10 +108,13 @@ export default function ApiPrayers(params) {
 
     useEffect(() => {
         getCountries();
+        const t = moment();
+        setTimeNow(t.format('h:mm:ss'))
+        CurrentPrayerAndNextPrayer(moment(), moment, "hh:mm", timings, setCurrentPrayerAndNextPrayer)
     }, []);
 
     const values = {
-        timeH,
+        timeNow,
         timings,
         dateGregorian,
         dateHijri,
@@ -116,7 +124,9 @@ export default function ApiPrayers(params) {
         setCountry,
         city,
         setCity,
-        capital
+        capital,
+        currentPrayerAndNextPrayer,
+
     }
     return (
         <ApiPrayersContext.Provider value={values}>
