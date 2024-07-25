@@ -11,10 +11,12 @@ export const ApiPrayersContext = createContext(null);
 
 export default function ApiPrayers(params) {
 
+    const [timeRemainingNextPrayer, setTimeRemainingNextPrayer] = useState('00:00:00')
     const [currentPrayerAndNextPrayer, setCurrentPrayerAndNextPrayer] = useState({
-        currentPrayer: 0,
-        nextPrayer: 1,
-        timeNow: '00:00:00'
+        currentPrayer: 1,
+        nextPrayer: 2,
+        timeNow: '00:00:00',
+        timeNextPrayer: '00:00'
     })
 
     const [timings, setTiming] = useState({
@@ -63,8 +65,8 @@ export default function ApiPrayers(params) {
     useEffect(() => {
         GetCountries(setAllCountries);
         CurrentPrayerAndNextPrayer(moment(), moment, "hh:mm", timings, setCurrentPrayerAndNextPrayer)
-        TimeNextPrayer(currentPrayerAndNextPrayer.timeNow, '000')
-    }, []);
+        TimeNextPrayer(currentPrayerAndNextPrayer.timeNow, currentPrayerAndNextPrayer.timeNextPrayer, setTimeRemainingNextPrayer)
+    }, [timings]);
 
     const values = {
         timings,
@@ -78,6 +80,7 @@ export default function ApiPrayers(params) {
         setCity,
         capital,
         currentPrayerAndNextPrayer,
+        timeRemainingNextPrayer
     }
     return (
         <ApiPrayersContext.Provider value={values}>
