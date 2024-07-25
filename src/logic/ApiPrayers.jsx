@@ -1,11 +1,8 @@
 import { useEffect, useState, createContext } from 'react';
-import moment from 'moment';
 import GetTimings from './API/GetTimings';
 import GetCountries from './API/GetCountries';
 import GetCities from './API/GetCities';
 import GetCapital from './API/GetCapital';
-import CurrentPrayerAndNextPrayer from './CurrentPrayerAndNextPrayer';
-import TimeNextPrayer from './TimeNextPrayer';
 
 // Create a context for API prayers data
 export const ApiPrayersContext = createContext(null);
@@ -71,21 +68,10 @@ export default function ApiPrayers(params) {
         GetCapital(setCapital, country);
     }, [country, city]);
 
-    // Calculate current prayer, next prayer, and time remaining when timings change
-    useEffect(() => {
-        let interval = setInterval(() => {
-            // console.log(currentPrayerAndNextPrayer.timeNow);
-            CurrentPrayerAndNextPrayer(moment(), moment, "hh:mm", timings, setCurrentPrayerAndNextPrayer);
-        }, 1000);
 
-        return () => {
-            clearInterval(interval);
-        };
-    }, [timings]);
 
     useEffect(() => {
         GetCountries(setAllCountries);
-        TimeNextPrayer(currentPrayerAndNextPrayer.timeNow, currentPrayerAndNextPrayer.timeNextPrayer, setTimeRemainingNextPrayer);
     })
     // Context values to be provided to other components
     const values = {
@@ -100,7 +86,9 @@ export default function ApiPrayers(params) {
         setCity,
         capital,
         currentPrayerAndNextPrayer,
-        timeRemainingNextPrayer
+        setCurrentPrayerAndNextPrayer,
+        timeRemainingNextPrayer,
+        setTimeRemainingNextPrayer
     };
 
     return (
