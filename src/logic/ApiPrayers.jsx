@@ -7,18 +7,22 @@ import GetCapital from './API/GetCapital';
 import CurrentPrayerAndNextPrayer from './CurrentPrayerAndNextPrayer';
 import TimeNextPrayer from './TimeNextPrayer';
 
+// Create a context for API prayers data
 export const ApiPrayersContext = createContext(null);
 
 export default function ApiPrayers(params) {
+    // State to keep track of the time remaining until the next prayer
+    const [timeRemainingNextPrayer, setTimeRemainingNextPrayer] = useState('00:00:00');
 
-    const [timeRemainingNextPrayer, setTimeRemainingNextPrayer] = useState('00:00:00')
+    // State to store current and next prayer details
     const [currentPrayerAndNextPrayer, setCurrentPrayerAndNextPrayer] = useState({
         currentPrayer: 1,
         nextPrayer: 2,
         timeNow: '00:00:00',
         timeNextPrayer: '00:00'
-    })
+    });
 
+    // State to manage prayer timings
     const [timings, setTiming] = useState({
         Imsak: "00:00",
         Fajr: "00:00",
@@ -33,41 +37,57 @@ export default function ApiPrayers(params) {
         Lastthird: "00:00"
     });
 
+    // State for Gregorian date
     const [dateGregorian, setDateGregorian] = useState({
         date: "DD-MM-YYYY",
         day: "DD",
         month: { en: "MM", number: "MM" },
         weekday: { en: "DD" },
         year: "YYYY"
-    })
+    });
+
+    // State for Hijri date
     const [dateHijri, setDateHijri] = useState({
         date: "DD-MM-YYYY",
         day: "DD",
         month: { en: "MM", number: "MM" },
         weekday: { en: "DD" },
         year: "YYYY"
-    })
+    });
 
+    // State to manage the list of countries and cities
     const [allCountries, setAllCountries] = useState([]);
-    const [allCities, setAllCities] = useState([])
+    const [allCities, setAllCities] = useState([]);
 
-    const [country, setCountry] = useState('Morocco')
-    const [city, setCity] = useState('')
-    const [capital, setCapital] = useState('')
+    // State for selected country, city, and capital
+    const [country, setCountry] = useState('Morocco');
+    const [city, setCity] = useState('');
+    const [capital, setCapital] = useState('');
 
-
+    // Fetch timings, cities, and capital when country or city changes
     useEffect(() => {
         GetTimings(city, country, setTiming, setDateGregorian, setDateHijri);
         GetCities(setAllCities, country);
         GetCapital(setCapital, country);
     }, [country, city]);
 
+    // Calculate current prayer, next prayer, and time remaining when timings change
     useEffect(() => {
-        GetCountries(setAllCountries);
-        CurrentPrayerAndNextPrayer(moment(), moment, "hh:mm", timings, setCurrentPrayerAndNextPrayer)
-        TimeNextPrayer(currentPrayerAndNextPrayer.timeNow, currentPrayerAndNextPrayer.timeNextPrayer, setTimeRemainingNextPrayer)
+        let interval = setInterval(() => {
+            // console.log(currentPrayerAndNextPrayer.timeNow);
+            CurrentPrayerAndNextPrayer(moment(), moment, "hh:mm", timings, setCurrentPrayerAndNextPrayer);
+        }, 1000);
+
+        return () => {
+            clearInterval(interval);
+        };
     }, [timings]);
 
+    useEffect(() => {
+        GetCountries(setAllCountries);
+        TimeNextPrayer(currentPrayerAndNextPrayer.timeNow, currentPrayerAndNextPrayer.timeNextPrayer, setTimeRemainingNextPrayer);
+    })
+    // Context values to be provided to other components
     const values = {
         timings,
         dateGregorian,
@@ -81,11 +101,11 @@ export default function ApiPrayers(params) {
         capital,
         currentPrayerAndNextPrayer,
         timeRemainingNextPrayer
-    }
+    };
+
     return (
         <ApiPrayersContext.Provider value={values}>
             {params.children}
         </ApiPrayersContext.Provider>
     );
 }
-
