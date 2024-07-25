@@ -8,6 +8,8 @@ import GetCapital from './API/GetCapital';
 export const ApiPrayersContext = createContext(null);
 
 export default function ApiPrayers(params) {
+
+    const [getCurrentPeriod, setGetCurrentPeriod] = useState('AM')
     // State to keep track of the time remaining until the next prayer
     const [timeRemainingNextPrayer, setTimeRemainingNextPrayer] = useState('00:00:00');
 
@@ -88,7 +90,9 @@ export default function ApiPrayers(params) {
         currentPrayerAndNextPrayer,
         setCurrentPrayerAndNextPrayer,
         timeRemainingNextPrayer,
-        setTimeRemainingNextPrayer
+        setTimeRemainingNextPrayer,
+        getCurrentPeriod,
+        setGetCurrentPeriod
     };
 
     return (

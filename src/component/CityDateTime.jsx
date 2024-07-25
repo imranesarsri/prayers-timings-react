@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { time } from '../../public'
+import { date } from '../../public'
 import { ApiPrayersContext } from '../logic/ApiPrayers'
 
 export default function CityDateTime() {
@@ -7,9 +7,10 @@ export default function CityDateTime() {
     const { dateGregorian, dateHijri, currentPrayerAndNextPrayer } = useContext(ApiPrayersContext)
 
     return (
-        <div style={{ backgroundImage: `url(${time})`, backgroundSize: 'cover', }} className="text-light-default border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-5">
+        <div style={{ backgroundImage: `url(${date})`, backgroundSize: 'cover', }} className="text-light-default border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-5">
             <div className='mb-5'>
                 <p className="text-2xl font-semibold">{dateGregorian.weekday.en}</p>
+                <p className='mt-1 text-md capitalize '>present time</p>
                 <h5 className="mb-2 text-5xl font-bold tracking-tight">{currentPrayerAndNextPrayer.timeNow}</h5>
             </div>
             <div>

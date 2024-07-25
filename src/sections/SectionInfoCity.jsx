@@ -7,18 +7,20 @@ import CurrentPrayerAndNextPrayer from '../logic/CurrentPrayerAndNextPrayer';
 import moment from 'moment';
 import { ApiPrayersContext } from '../logic/ApiPrayers';
 import TimeNextPrayer from '../logic/TimeNextPrayer';
+import GetCurrentPeriod from '../logic/GetCurrentPeriod';
 
 export default function SectionInfoCity() {
 
-    const { timings, setCurrentPrayerAndNextPrayer, currentPrayerAndNextPrayer, setTimeRemainingNextPrayer } = useContext(ApiPrayersContext)
-
+    const { timings, setCurrentPrayerAndNextPrayer, currentPrayerAndNextPrayer, setTimeRemainingNextPrayer, setGetCurrentPeriod } = useContext(ApiPrayersContext)
 
     // Calculate current prayer, next prayer, and time remaining when timings change
     useEffect(() => {
         CurrentPrayerAndNextPrayer(moment(), moment, "hh:mm", timings, setCurrentPrayerAndNextPrayer);
         let interval = setInterval(() => {
             CurrentPrayerAndNextPrayer(moment(), moment, "hh:mm", timings, setCurrentPrayerAndNextPrayer);
-        }, 60000);
+
+            GetCurrentPeriod(setGetCurrentPeriod)
+        }, 1000);
 
         return () => {
             clearInterval(interval);
