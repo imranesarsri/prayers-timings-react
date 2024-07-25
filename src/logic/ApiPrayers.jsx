@@ -5,6 +5,7 @@ import GetCountries from './API/GetCountries';
 import GetCities from './API/GetCities';
 import GetCapital from './API/GetCapital';
 import CurrentPrayerAndNextPrayer from './CurrentPrayerAndNextPrayer';
+import TimeNextPrayer from './TimeNextPrayer';
 
 export const ApiPrayersContext = createContext(null);
 
@@ -16,7 +17,6 @@ export default function ApiPrayers(params) {
         timeNow: '00:00:00'
     })
 
-    const [timeNow, setTimeNow] = useState('')
     const [timings, setTiming] = useState({
         Imsak: "00:00",
         Fajr: "00:00",
@@ -62,14 +62,11 @@ export default function ApiPrayers(params) {
 
     useEffect(() => {
         GetCountries(setAllCountries);
-        const t = moment();
-        setTimeNow(t.format('h:mm:ss'))
         CurrentPrayerAndNextPrayer(moment(), moment, "hh:mm", timings, setCurrentPrayerAndNextPrayer)
-
+        TimeNextPrayer(currentPrayerAndNextPrayer.timeNow, '000')
     }, []);
 
     const values = {
-        timeNow,
         timings,
         dateGregorian,
         dateHijri,
