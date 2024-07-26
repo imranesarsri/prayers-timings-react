@@ -5,7 +5,14 @@ import Row_2 from "../miniComponent/layouts/Row_2";
 import { ApiPrayersContext } from "../logic/ApiPrayers";
 
 export default function Header() {
-    const { allCountries, allCities, country, setCountry, city, setCity, capital } = useContext(ApiPrayersContext);
+    const { allCountries, allCities, country, setCountry, city, setCity, capital, setGetCurrentTimeInTimezone } = useContext(ApiPrayersContext);
+
+    function onChangeCountries(event) {
+        const selectedIndex = event.target.selectedIndex;
+        const selectedOption = event.target.options[selectedIndex];
+        setCountry(event.target.value);
+        setGetCurrentTimeInTimezone(selectedOption.id);
+    }
 
     return (
         <Row_1>
@@ -21,9 +28,9 @@ export default function Header() {
 
                 <Row_2>
                     <div className="flex justify-center py-2 md:py-0">
-                        <select id="countries" value={country} onChange={(event) => { setCountry(event.target.value) }} className="bg-gray-50 text-center w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <select id="countries" value={country} onChange={onChangeCountries} className="bg-gray-50 text-center w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             {allCountries.map((country) => (
-                                <option key={country.Iso2} value={country.name}>{country.name}</option>
+                                <option id={country.Iso2} key={country.Iso2} value={country.name}>{country.name}</option>
                             ))}
                         </select>
                     </div>

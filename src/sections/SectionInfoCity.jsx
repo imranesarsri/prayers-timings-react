@@ -4,22 +4,22 @@ import PrayerTimeRemaining from '../component/PrayerTimeRemaining';
 import Container from '../miniComponent/layouts/Container';
 import { useContext, useEffect } from 'react';
 import CurrentPrayerAndNextPrayer from '../logic/CurrentPrayerAndNextPrayer';
-import moment from 'moment';
 import { ApiPrayersContext } from '../logic/ApiPrayers';
-import TimeNextPrayer from '../logic/TimeNextPrayer';
+import TimeRemainingNextPrayer from '../logic/TimeRemainingNextPrayer';
 import GetCurrentPeriod from '../logic/GetCurrentPeriod';
 
 export default function SectionInfoCity() {
 
-    const { timings, setCurrentPrayerAndNextPrayer, currentPrayerAndNextPrayer, setTimeRemainingNextPrayer, setGetCurrentPeriod } = useContext(ApiPrayersContext)
+    const { timings, setCurrentPrayerAndNextPrayer, currentPrayerAndNextPrayer, setTimeRemainingNextPrayer, getCurrentPeriod, setGetCurrentPeriod, getCurrentTimeInTimezone } = useContext(ApiPrayersContext)
 
     // Calculate current prayer, next prayer, and time remaining when timings change
     useEffect(() => {
-        CurrentPrayerAndNextPrayer(moment(), moment, "hh:mm", timings, setCurrentPrayerAndNextPrayer);
+        CurrentPrayerAndNextPrayer("hh:mm", timings, setCurrentPrayerAndNextPrayer, getCurrentTimeInTimezone, getCurrentPeriod);
         let interval = setInterval(() => {
-            CurrentPrayerAndNextPrayer(moment(), moment, "hh:mm", timings, setCurrentPrayerAndNextPrayer);
+            CurrentPrayerAndNextPrayer("hh:mm", timings, setCurrentPrayerAndNextPrayer, getCurrentTimeInTimezone, getCurrentPeriod);
 
             GetCurrentPeriod(setGetCurrentPeriod)
+
         }, 1000);
 
         return () => {
@@ -28,7 +28,7 @@ export default function SectionInfoCity() {
     }, [timings]);
 
     useEffect(() => {
-        TimeNextPrayer(currentPrayerAndNextPrayer.timeNow, currentPrayerAndNextPrayer.timeNextPrayer, setTimeRemainingNextPrayer);
+        TimeRemainingNextPrayer(currentPrayerAndNextPrayer.timeNow, currentPrayerAndNextPrayer.timeNextPrayer, setTimeRemainingNextPrayer, getCurrentPeriod);
     })
 
     return (
