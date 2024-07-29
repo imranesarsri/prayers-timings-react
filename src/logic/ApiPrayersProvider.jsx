@@ -9,7 +9,9 @@ export const ApiPrayersContext = createContext(null);
 
 export default function ApiPrayersProvider(params) {
 
-
+    // *********************************************
+    // ***************** useState ******************
+    // *********************************************
     const [getCurrentTimeInTimezone, setGetCurrentTimeInTimezone] = useState('MA')
     const [getCurrentPeriod, setGetCurrentPeriod] = useState('AM')
     // State to keep track of the time remaining until the next prayer
@@ -66,6 +68,9 @@ export default function ApiPrayersProvider(params) {
 
 
 
+    // *********************************************
+    // ***************** useEffect *****************
+    // *********************************************
     // Fetch timings, cities, and capital when country or city changes
     useEffect(() => {
         GetTimings(city, country, setTiming, setDateGregorian, setDateHijri);
@@ -74,12 +79,14 @@ export default function ApiPrayersProvider(params) {
     }, [country, city]);
 
 
-
     useEffect(() => {
         GetCountries(setAllCountries);
     }, [])
 
 
+    // *********************************************
+    // *************** Import Values ***************
+    // *********************************************
     // Context values to be provided to other components
     const values = {
         timings,

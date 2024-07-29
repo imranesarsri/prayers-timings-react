@@ -15,7 +15,7 @@ npm run dev
 ## API
 - aladhan
 [aladhan.com](https://aladhan.com/)
-- api countries and cities
+- api countries and cities and capital
 [getpostman](https://documenter.getpostman.com/view/1134062/T1LJjU52)
 
 
