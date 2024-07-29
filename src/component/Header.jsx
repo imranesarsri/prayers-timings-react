@@ -2,7 +2,7 @@ import { useContext } from "react";
 import MainHeader from "../miniComponent/headers/MainHeader";
 import Row_1 from "../miniComponent/layouts/Row_1";
 import Row_2 from "../miniComponent/layouts/Row_2";
-import { ApiPrayersContext } from "../logic/ApiPrayers";
+import { ApiPrayersContext } from "../logic/ApiPrayersProvider";
 
 export default function Header() {
     const { allCountries, allCities, country, setCountry, city, setCity, capital, setGetCurrentTimeInTimezone } = useContext(ApiPrayersContext);

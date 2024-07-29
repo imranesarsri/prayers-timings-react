@@ -4,7 +4,7 @@ import PrayerTimeRemaining from '../component/PrayerTimeRemaining';
 import Container from '../miniComponent/layouts/Container';
 import { useContext, useEffect } from 'react';
 import CurrentPrayerAndNextPrayer from '../logic/CurrentPrayerAndNextPrayer';
-import { ApiPrayersContext } from '../logic/ApiPrayers';
+import { ApiPrayersContext } from '../logic/ApiPrayersProvider';
 import TimeRemainingNextPrayer from '../logic/TimeRemainingNextPrayer';
 import GetCurrentPeriod from '../logic/GetCurrentPeriod';
 

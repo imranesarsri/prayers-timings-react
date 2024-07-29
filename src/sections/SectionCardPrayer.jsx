@@ -3,7 +3,7 @@ import CardPrayer from '../component/CardPrayer';
 import Row_5 from '../miniComponent/layouts/Row_5';
 import PrimaryHeader from '../miniComponent/headers/PrimaryHeader';
 import Container from '../miniComponent/layouts/Container';
-import { ApiPrayersContext } from '../logic/ApiPrayers';
+import { ApiPrayersContext } from '../logic/ApiPrayersProvider';
 
 export default function SectionCardPrayer() {
 

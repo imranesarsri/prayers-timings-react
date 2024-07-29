@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { date } from '../../public'
-import { ApiPrayersContext } from '../logic/ApiPrayers'
+import { ApiPrayersContext } from '../logic/ApiPrayersProvider'
 
 export default function CityDateTime() {
 

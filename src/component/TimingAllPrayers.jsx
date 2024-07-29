@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import TableRow from "../miniComponent/component/TableRow";
-import { ApiPrayersContext } from "../logic/ApiPrayers";
+import { ApiPrayersContext } from "../logic/ApiPrayersProvider";
 
 export default function TimingAllPrayers() {
     const { timings } = useContext(ApiPrayersContext);

@@ -7,7 +7,7 @@ import GetCapital from './API/GetCapital';
 // Create a context for API prayers data
 export const ApiPrayersContext = createContext(null);
 
-export default function ApiPrayers(params) {
+export default function ApiPrayersProvider(params) {
 
 
     const [getCurrentTimeInTimezone, setGetCurrentTimeInTimezone] = useState('MA')

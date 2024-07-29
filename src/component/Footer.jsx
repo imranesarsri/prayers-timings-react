@@ -18,7 +18,7 @@ export default function Footer() {
                 <div>
 
                     <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-                        <span className="text-sm sm:text-center">© 2024 <a href="/" className="hover:underline">SalaahTimings</a>. All Rights Reserved.
+                        <span className="text-sm sm:text-center">© 2024 <a href="https://imranesarsri.github.io/portfolio/" className="hover:underline">imrane sarsri</a>. All Rights Reserved.
                         </span>
                     </div>
                 </div>
