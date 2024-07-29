@@ -2,7 +2,7 @@
 import imageImsak from './images/prayers/1-imsak-prayer.jpg'
 import imageFajr from './images/prayers/2-fajr-prayer.png'
 import imageSunrise from './images/prayers/3-sunrise-prayer.jpg'
-import imageDhhr from './images/prayers/4-dhhr-prayer.png'
+import imageDhuhr from './images/prayers/4-dhuhr-prayer.png'
 import imageAsr from './images/prayers/5-asr-prayer.png'
 import imageSunset from './images/prayers/6-sunset-prayer.png'
 import imageMaghrib from './images/prayers/7-maghrib-prayer.jpg'
@@ -19,7 +19,7 @@ export {
   imageImsak,
   imageFajr,
   imageSunrise,
-  imageDhhr,
+  imageDhuhr,
   imageAsr,
   imageSunset,
   imageMaghrib,

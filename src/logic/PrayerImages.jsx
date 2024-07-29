@@ -1,6 +1,6 @@
 import {
     imageFajr,
-    imageDhhr,
+    imageDhuhr,
     imageAsr,
     imageIsha,
     imageSunset,
@@ -16,7 +16,7 @@ import {
 const PrayerImages = {
     fajr: imageFajr,
     sunrise: imageSunrise,
-    dhhr: imageDhhr,
+    dhuhr: imageDhuhr,
     asr: imageAsr,
     isha: imageIsha,
     maghrib: imageMaghrib,
