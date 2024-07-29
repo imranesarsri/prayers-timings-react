@@ -28,7 +28,7 @@ export default function Menu() {
                     <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white hidden sm:block">Salaah Timings</span>
                 </a>
                 <div>
-                    <a href="#" className="block py-2 px-3 text-xl font-medium rounded md:bg-transparen md:p-0 md:text-light-default" aria-current="page">Prayers</a>
+                    <a href="/" className="block py-2 px-3 text-xl font-medium rounded md:bg-transparen md:p-0 md:text-light-default" aria-current="page">Prayers</a>
                 </div>
                 <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                     <div className="flex justify-between items-center">

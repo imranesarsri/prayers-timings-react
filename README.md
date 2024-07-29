@@ -1,5 +1,7 @@
 # Prayers timings react
 
+![modeling](./public/images/modeling/modeling.png)
+
 ## Installation  
 - **React** and **vite**
 ```bash
