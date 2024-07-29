@@ -62,7 +62,10 @@ export default function ApiPrayersProvider(params) {
     const [allCities, setAllCities] = useState([]);
 
     // State for selected country, city, and capital
-    const [country, setCountry] = useState('Morocco');
+    const [country, setCountry] = useState({
+        name: "Morocco",
+        Iso2: "MA"
+    });
     const [city, setCity] = useState('');
     const [capital, setCapital] = useState('');
 

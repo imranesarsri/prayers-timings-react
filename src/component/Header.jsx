@@ -10,7 +10,7 @@ export default function Header() {
     function onChangeCountries(event) {
         const selectedIndex = event.target.selectedIndex;
         const selectedOption = event.target.options[selectedIndex];
-        setCountry(selectedOption.id);
+        setCountry({ name: event.target.value, Iso2: selectedOption.id });
         setGetCurrentTimeInTimezone(selectedOption.id);
     }
 
@@ -28,7 +28,7 @@ export default function Header() {
 
                 <Row_2>
                     <div className="flex justify-center py-2 md:py-0">
-                        <select id="countries" value={country} onChange={onChangeCountries} className="bg-gray-50 text-center w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <select id="countries" value={country.name} onChange={onChangeCountries} className="bg-gray-50 text-center w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             {allCountries.map((country) => (
                                 <option id={country.Iso2} key={country.Iso2} value={country.name}>{country.name}</option>
                             ))}
