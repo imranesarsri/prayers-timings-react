@@ -10,7 +10,7 @@ export default function Header() {
     function onChangeCountries(event) {
         const selectedIndex = event.target.selectedIndex;
         const selectedOption = event.target.options[selectedIndex];
-        setCountry(event.target.value);
+        setCountry(selectedOption.id);
         setGetCurrentTimeInTimezone(selectedOption.id);
     }
 
