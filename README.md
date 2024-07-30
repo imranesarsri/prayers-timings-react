@@ -1,5 +1,7 @@
 # Prayers timings react
 
+- [Project link](https://salaah-timings.vercel.app/)
+ 
 ![modeling](./public/images/modeling/modeling.png)
 
 ## Installation  
