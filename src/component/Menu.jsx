@@ -1,4 +1,4 @@
-import { FaSun, FaMoon, FaLanguage } from "react-icons/fa6";
+import { FaSun, FaMoon } from "react-icons/fa6";
 import { useContext, useState } from "react";
 import { DarkModeContext } from "../App";
 import { getPrayerImage } from "../logic/PrayerImages";
@@ -34,10 +34,6 @@ export default function Menu() {
                     <div className="flex justify-between items-center">
                         <button className="px-5 text-xl" onClick={handelDarkModeIcon}>
                             {darkModeIcon}
-                        </button>
-                        <button className="text-xl flex justify-between items-center">
-                            <span className="me-2">English</span>
-                            <FaLanguage />
                         </button>
                     </div>
 
