@@ -7,7 +7,7 @@ export default function Footer() {
     return (
 
 
-        <footer className="bg-Blue-secondary text-light-default rounded-lg shadow dark:bg-Blue-default" >
+        <footer className="bg-Blue-secondary text-light-default sm:rounded-lg shadow dark:bg-Blue-default" >
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <div>
                     <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">

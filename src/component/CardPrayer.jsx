@@ -5,7 +5,7 @@ export default function CardPrayer(params) {
     const prayer = getPrayerImage(params.title);
 
     return (
-        <div className="max-w-sm mb-5 sm:mb-0 bg-light-default hover:bg-light-secondary rounded-lg shadow-custom dark:bg-dark-primary hover:dark:bg-dark-secondary">
+        <div className="max-w mb-5 sm:mb-0 bg-light-default hover:bg-light-secondary rounded-lg shadow-custom dark:bg-dark-primary hover:dark:bg-dark-secondary">
             <a href="#">
                 <img className="rounded-t-lg" src={prayer} alt="" />
             </a>
