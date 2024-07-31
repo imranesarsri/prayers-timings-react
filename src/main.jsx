@@ -8,15 +8,12 @@ const RootComponent = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const handleLoad = () => {
+    // Set a timeout to simulate the loading process
+    const timeout = setTimeout(() => {
       setLoading(false);
-    };
+    }, 3000); // Adjust the time (in milliseconds) as needed
 
-    window.addEventListener('load', handleLoad);
-
-    return () => {
-      window.removeEventListener('load', handleLoad);
-    };
+    return () => clearTimeout(timeout);
   }, []);
 
   return (
